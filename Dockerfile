@@ -19,12 +19,12 @@ RUN npm run build
 
 # Stage 2: Serve the React application using Nginx
 FROM nginx:alpine
-
-# Copy the build output to replace the default Nginx contents.
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+RUN rm -rf *
+COPY --from=build /app/build .
 
 # Expose the port the app runs on
 EXPOSE 80
 
 # Run Nginx
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
