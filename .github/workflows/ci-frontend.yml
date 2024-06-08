@@ -33,4 +33,11 @@ jobs:
         with:
           push: true
           tags: victorgentle/reactjs-app:latest
-      
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from dockerhub
+        run: docker pull victorgentle/reactjs-app:latest
+      - name: Run docker container
+        run: docker run -d -p 5000:80 reactcontainer victorgentle/reactjs-app:latest
