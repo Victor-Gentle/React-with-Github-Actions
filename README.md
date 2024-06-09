@@ -10,9 +10,11 @@
 - Conclusion
 
 ## Introduction
+
 This guide provides a comprehensive overview of developing a full-stack application, including backend API management, frontend web development, Docker containerization, and automating deployment using a CI/CD pipeline with GitHub Actions. We'll cover everything from setting up the development environment to deploying the application on the cloud.
 
 ## Project Structure
+
 A typical project structure for a full-stack application:
 
 React-app/
@@ -35,6 +37,7 @@ React-app/
 └── README.md
 
 ## Backend Development
+
 1. Setting Up the Backend
 Initialize a Node.js application.
 Install Express.js.
@@ -44,6 +47,7 @@ Use npm install to install dependencies.
 Use npm run dev to start the server in development mode.
 
 ## Frontend Development
+
 1. Setting Up the Frontend
 Initialize a React application using Create React App.
 Create basic components and fetch data from the backend API.
@@ -52,6 +56,7 @@ Use npm install to install dependencies.
 Use npm start to start the development server.
 
 ## Docker Containerization
+
 1. Dockerizing the Backend
 Create a Dockerfile for the backend.
 Specify the base image, working directory, and commands to install dependencies and start the server.
@@ -64,6 +69,7 @@ Create a docker-compose.yml file to define and run multi-container Docker applic
 Use docker-compose up --build to build and start the containers.
 
 ## CI/CD Pipeline with GitHub Actions
+
 1. Setting Up GitHub Actions
 Create a workflow file in .github/workflows/ci.yml.
 Define jobs for building and pushing Docker images to Docker Hub.
@@ -71,6 +77,7 @@ Define jobs for building and pushing Docker images to Docker Hub.
 Store your Docker Hub credentials as secrets (DOCKER_USERNAME and DOCKER_PASSWORD) in your GitHub repository.
 
 ## Cloud Deployment
+
 1. Setting Up an AWS EC2 Instance
 Launch an EC2 instance from the AWS Management Console.
 Choose an Amazon Machine Image (AMI), such as Ubuntu.
@@ -80,19 +87,22 @@ Configure security group settings to allow SSH and HTTP/HTTPS access.
 Use SSH to connect to your EC2 instance
 3. Installing Docker on the EC2 Instance
 Update the package database:
+
 '''bash
 sudo apt update
 sudo apt install docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo usermod -aG docker $USER
-bash'''
 
 ## Automating Deployment with GitHub Actions
-Update your GitHub Actions workflow file to include steps for deploying to EC2:
+
+Update your GitHub Actions workflow file to include steps for deploying to EC2
 
 Add a step to connect to the EC2 instance via SSH and deploy the Docker containers.
+
 ## Conclusion
+
 By following this guide, you have developed a full-stack application, containerized it using Docker, set up a CI/CD pipeline with GitHub Actions, and deployed it to the cloud. This process ensures that your application is robust, scalable, and can be updated automatically with minimal downtime.
 
 
